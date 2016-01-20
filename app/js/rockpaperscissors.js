@@ -1,12 +1,15 @@
+
 ////////////////////////////////////////////////
 /*   Provided Code - Please Don't Edit   */
 ////////////////////////////////////////////////
 'use strict';
 
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
-    return prompt();
+    
+    console.log("Please choose either 'rock', 'paper', or 'scissors'.");
+
 }
+
 function randomPlay() {
     var randomNumber = Math.random();
     if (randomNumber < 0.33) {
@@ -21,35 +24,120 @@ function randomPlay() {
 /*           Write Your Code Below            */
 ////////////////////////////////////////////////
 
+
 function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    return /* Your Expression */;
+    return move || getInput();
 }
 
 function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return /* Your Expression */;
+    return move || randomPlay();
 }
 
-function getWinner(playerMove,computerMove) {
+
+function getWinner(getPlayerMove,getComputerMove) {
+    
+
     var winner;
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
-    /* YOUR CODE HERE */
-    return winner;
-}
+    
+        if(getPlayerMove === "rock" && getComputerMove === "rock"){
+            
+            return "tie";
+        }
+        
+        
+        else if(getPlayerMove === "rock" && getComputerMove === "paper"){
+                
+            return "computer";
+        }
+     
+        else if(getPlayerMove === "rock" && getComputerMove === "scissors"){
+            
+            return "player";
+            
+        }
+        
+        else if(getPlayerMove === "scissor" && getComputerMove === "scissor"){
+            
+            return "tie";
+            
+        }
+       
+        else if(getPlayerMove === "scissors" && getComputerMove === "rock"){
+                
+            return "computer";
+            
+        }
+        
+        else if(getPlayerMove === "scissors" && getComputerMove === "paper"){
+            
+            return "player";
+            
+        }
+    
+        else if(getPlayerMove === "paper" && getComputerMove === "paper"){
+        
+        return "tie";
+        
+        } 
+    
+        else if(getPlayerMove === "paper" && getComputerMove === "scissors"){
+        
+        return "computer";
+        
+        }
+     
+        else(getPlayerMove === "paper" && getComputerMove === "rock");
+        
+            return "player";
+        }
+    
+getWinner('rock','rock');
 
 function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
+    var player = getWinner(getPlayerMove());
+    var computer = getWinner(getComputerMove());
+    var result = getWinner(getPlayerMove(), (getComputerMove()));
+  
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
-    return [playerWins, computerWins];
+ 
+     while (playerWins < 5 && computerWins < 5) {
+         
+     
+         
+     if (result === player) {
+         
+         playerWins++;
+     }
+     
+     else if (result === computer) {
+         
+         computerWins++;
+         
+     }
+     
+     else; {
+         
+         console.log('tie!');
+     }
+ 
+     console.log("The score is Player" + playerWins + " Computer " + computerWins + "\n");
+ 
+     }
+    return ["Player " + playerWins, "Computer " + computerWins];
+   
 }
+
+
 
